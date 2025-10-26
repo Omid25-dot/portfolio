@@ -1,16 +1,22 @@
 import streamlit as st
 import random
 import requests
+import json
 from datetime import date
 from streamlit_lottie import st_lottie
 
+# -------------------------------
+# PAGE CONFIG
+# -------------------------------
 st.set_page_config(
     page_title="Omid Merati | JP Morgan Application",
     page_icon="💻",
     layout="centered"
 )
 
-# Animated gradient background + smooth card styling
+# -------------------------------
+# STYLE + ANIMATED GRADIENT
+# -------------------------------
 st.markdown("""
 <style>
 @keyframes gradientShift {
@@ -46,18 +52,31 @@ div[data-testid="stExpander"] div[role="button"] p {
 """, unsafe_allow_html=True)
 
 
-def load_lottie(url):
+# -------------------------------
+# LOAD ANIMATIONS
+# -------------------------------
+def load_lottie_url(url):
     r = requests.get(url)
     if r.status_code != 200:
         return None
     return r.json()
 
+# From URL
+lottie_coding = load_lottie_url("https://assets2.lottiefiles.com/packages/lf20_1pxqjqps.json")
+lottie_wave = load_lottie_url("https://assets10.lottiefiles.com/packages/lf20_c9k5v4jt.json")
 
-# main animation
-lottie_coding = load_lottie("https://assets2.lottiefiles.com/packages/lf20_1pxqjqps.json")
-lottie_wave = load_lottie("https://assets10.lottiefiles.com/packages/lf20_c9k5v4jt.json")
+# From local file (your animation)
+with open("Background looping animation.json", "r") as f:
+    lottie_background = json.load(f)
 
-# Header with animation
+# -------------------------------
+# DISPLAY BACKGROUND ANIMATION
+# -------------------------------
+st_lottie(lottie_background, height=400, key="bg", loop=True, speed=1)
+
+# -------------------------------
+# HEADER SECTION
+# -------------------------------
 col1, col2 = st.columns([2, 1])
 with col1:
     st.title("👋 Hi, I'm Omid Merati")
@@ -70,7 +89,9 @@ with col1:
 with col2:
     st_lottie(lottie_coding, height=220, key="coding")
 
-# Fun-fact section
+# -------------------------------
+# FUN FACT SECTION
+# -------------------------------
 fun_facts = [
     "I'm building a Smart Fridge AI Assistant that recognises items and suggests meals using computer vision.",
     "I created an algorithmic puzzle solver that helped Elvish historians 'save Christmas' 🎄 — a fun data project mixing logic and creativity.",
@@ -80,7 +101,9 @@ fun_facts = [
 if st.button("🎲 Click for a Random Fun Fact"):
     st.info(random.choice(fun_facts))
 
-# Topic selector
+# -------------------------------
+# TOPIC SELECTOR
+# -------------------------------
 topic = st.selectbox(
     "Pick a topic to explore:",
     ["Technical Skills", "Projects", "Certifications", "Hobbies"]
@@ -106,7 +129,9 @@ elif topic == "Hobbies":
     st.write("• Fitness and learning about AI, automation, and emerging tech.")
     st.write("• Exploring how code can make everyday tasks smarter and simpler.")
 
-# Expanders
+# -------------------------------
+# EXPANDERS
+# -------------------------------
 with st.expander("💻 My Projects in Detail"):
     st.write("- **Smart Fridge AI Assistant** – in development, uses a Raspberry Pi Camera and image recognition to detect fridge items and suggest recipes.")
     st.write("- **Alien Invasion Game** – Python arcade-style project where players defend against alien ships; implemented movement, collision detection, and scoring.")
@@ -116,6 +141,9 @@ with st.expander("🎓 Certifications"):
     st.write("• **Machine Learning with Python – FreeCodeCamp**")
     st.write("• **Git and GitHub – Udemy**")
 
+# -------------------------------
+# WHY JP MORGAN
+# -------------------------------
 st.header("💬 Why JP Morgan?")
 st.write("""
 JP Morgan’s Glasgow hub builds the technology that powers global finance.  
@@ -124,9 +152,13 @@ The apprenticeship model fits perfectly with how I learn best — through collab
 I’m eager to contribute to that culture while continuing to grow as a developer.
 """)
 
+# -------------------------------
+# LINKS
+# -------------------------------
 st.header("🔗 Find Me Online")
 st.markdown("[GitHub](https://github.com/Omid25-dot) | [LinkedIn](https://www.linkedin.com/in/omid-merati)")
 
 st_lottie(lottie_wave, height=150, key="wave", speed=0.8)
 st.caption(f"Last updated · {date.today().strftime('%B %Y')}")
+
 
