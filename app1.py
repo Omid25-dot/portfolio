@@ -50,9 +50,10 @@ with col1:
     st.title("👋 Hi, I'm Omid Merati")
     st.subheader("Applicant – JP Morgan 2026 Software Engineering Apprenticeship (Glasgow)")
     st.write("""
-    I’m an aspiring Python developer with a basic foundation in coding, problem-solving, and version control.  
-    I’m passionate about using technology to solve real-world problems and currently working on a **Smart Fridge AI Assistant** that recognises fridge contents using a Raspberry Pi Camera.  
-    This page gives a short, interactive overview of my projects and why I’d be a great fit for JP Morgan.
+    I’m a Python developer who’s been building up my skills through hands-on projects and problem-solving.
+I love finding smart, practical ways to use tech to make life easier — whether that’s through automation or AI.
+Right now, I’m working on a **Smart Fridge AI Assistant** that uses a Raspberry Pi Camera to recognise what’s inside the fridge and suggest meals based on it.
+This page gives a quick, interactive look at some of the things I’ve worked on and why I think I’d be a great fit for JP Morgan.
     """)
 with col2:
     st_lottie(lottie_coding, height=180, key="coding")
@@ -61,10 +62,10 @@ with col2:
 # RANDOM FUN FACT
 # -------------------------------
 fun_facts = [
-    "I'm building a Smart Fridge AI Assistant that recognises items and suggests meals using computer vision.",
-    "I created an algorithmic puzzle solver that helped Elvish historians 'save Christmas' 🎄 — a fun data project mixing logic and creativity.",
-    "I enjoy debugging — it’s like detective work that rewards persistence and curiosity.",
-    "I once automated a repetitive task that saved hours weekly — that’s when I realised how powerful simple code can be."
+"🤖 I’m working on a Smart Fridge AI Assistant that uses a Raspberry Pi Camera to spot what’s in the fridge and suggest meals based on it.",
+    "🎄 I built a puzzle solving algorithm on Advent of Code that helped 'Elvish historians save Christmas' a fun project that tested my problem-solving and creativity.",
+    "🕵️‍♂️ I actually enjoy debugging it’s like detective work where every small clue gets you closer to cracking the issue.",
+    "💻 I built a little script that sorted all my files on my Mac and deleted duplicates."
 ]
 if st.button("🎲 Click for a Random Fun Fact"):
     st.info(random.choice(fun_facts))
@@ -80,11 +81,11 @@ topic = st.selectbox(
 if topic == "Technical Skills":
     st.write("**Programming Languages:** Python (proficient)")
     st.write("**Version Control:** Git & GitHub")
-    st.write("**Core Strengths:** Problem-solving, algorithmic thinking, and building practical solutions.")
+    st.write("**Core Strengths:** Problem solving, algorithmic thinking, and building practical solutions.")
     st.progress(80)
 
 elif topic == "Projects":
-    st.write("• **Smart Fridge AI Assistant** – Raspberry Pi & OpenCV-based system for food recognition and recipe suggestions.")
+    st.write("• **Smart Fridge AI Assistant** – I'm currently working on a Ai Assistant which runs on python code through a Raspberry Pi and a camera")
     st.write("• **Alien Invasion Game** – Python arcade game built with Pygame featuring movement, collision detection, and scoring.")
     st.write("• **Save Christmas Puzzle Solver** – Algorithmic project to reconcile lists of location IDs and optimise pairings.")
 
@@ -93,7 +94,7 @@ elif topic == "Certifications":
     st.write("• **Git and GitHub – Udemy**")
 
 elif topic == "Hobbies":
-    st.write("• Muay Thai and boxing — building discipline and focus through training.")
+    st.write("• Muay Thai and boxing building discipline and focus through training.")
     st.write("• Fitness and learning about AI, automation, and emerging tech.")
     st.write("• Exploring how code can make everyday tasks smarter and simpler.")
 
@@ -101,8 +102,8 @@ elif topic == "Hobbies":
 # EXPANDABLE SECTIONS
 # -------------------------------
 with st.expander("💻 My Projects in Detail"):
-    st.write("- **Smart Fridge AI Assistant** – currently in development, uses a Raspberry Pi Camera and image recognition to detect fridge items and suggest recipes.")
-    st.write("- **Alien Invasion Game** – Python arcade-style project where players defend against alien ships; implemented movement, collision detection, and scoring.")
+    st.write("- **Smart Fridge AI Assistant** – currently in development, uses a Raspberry Pi Camera and image recognition to detect fridge items, it suggests recipes and tracks food coming in and out of your fride.")
+    st.write("- **Alien Invasion Game** – Python arcade style project where players defend against alien ships; implemented movement, collision detection, and scoring.")
     st.write("- **Save Christmas: Location ID Puzzle Solver** – solved a logistics-based matching puzzle using algorithmic pairing and distance calculation.")
 
 with st.expander("🎓 Certifications"):
@@ -114,17 +115,18 @@ with st.expander("🎓 Certifications"):
 # -------------------------------
 st.header("💬 Why JP Morgan?")
 st.write("""
-JP Morgan’s Glasgow hub builds the technology that powers global finance.  
-I’m drawn to environments where small, elegant pieces of code can have huge real-world impact.  
-The apprenticeship model fits perfectly with how I learn best — through collaboration, feedback, and building things that matter.  
-I’m eager to contribute to that culture while continuing to grow as a developer.
+J.P. Morgan’s tech teams work on systems that power global finance — that scale and responsibility really motivates me.
+Developers here don’t just write code — they build tools that move billions, fight fraud, and make banking faster and safer.
+I like how J.P. Morgan combines finance + innovation, using AI, cloud tech, and data to solve real problems.
+The idea of learning from engineers who work on projects that actually impact the world is exciting to me.
+It feels like the perfect place to grow as a developer while working on something meaningful and global.
 """)
 
 # -------------------------------
 # LINKS
 # -------------------------------
 st.header("🔗 Find Me Online")
-st.markdown("[GitHub](https://github.com/Omid25-dot)  |  [LinkedIn](www.linkedin.com/in/omid-merati)")
+st.markdown("[GitHub](https://github.com/Omid25-dot)  |  [LinkedIn](https://www.linkedin.com/in/omid-merati)")
 
 st.caption(f"Last updated · {date.today().strftime('%B %Y')}")
 
