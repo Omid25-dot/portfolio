@@ -10,16 +10,41 @@ st.set_page_config(
     layout="centered"
 )
 
+# Animated gradient background + smooth card styling
 st.markdown("""
 <style>
-    .main {
-        background-color: #f4f6f8;
-    }
-    h1, h2, h3 {
-        color: #003366;
-    }
+@keyframes gradientShift {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+.main {
+  background: linear-gradient(270deg, #0e1117, #1a2533, #0e1117);
+  background-size: 600% 600%;
+  animation: gradientShift 18s ease infinite;
+  color: #fafafa;
+}
+h1, h2, h3 {
+  color: #00ffcc;
+}
+div.stButton>button {
+  background-color: #00ffcc;
+  color: #0e1117;
+  border-radius: 8px;
+  border: none;
+  transition: all 0.3s ease;
+}
+div.stButton>button:hover {
+  transform: scale(1.05);
+  background-color: #00e6b8;
+}
+div[data-testid="stExpander"] div[role="button"] p {
+  font-weight: 600;
+  color: #00ffcc;
+}
 </style>
 """, unsafe_allow_html=True)
+
 
 def load_lottie(url):
     r = requests.get(url)
@@ -27,8 +52,12 @@ def load_lottie(url):
         return None
     return r.json()
 
-lottie_coding = load_lottie("https://assets2.lottiefiles.com/packages/lf20_1pxqjqps.json")
 
+# main animation
+lottie_coding = load_lottie("https://assets2.lottiefiles.com/packages/lf20_1pxqjqps.json")
+lottie_wave = load_lottie("https://assets10.lottiefiles.com/packages/lf20_c9k5v4jt.json")
+
+# Header with animation
 col1, col2 = st.columns([2, 1])
 with col1:
     st.title("👋 Hi, I'm Omid Merati")
@@ -39,18 +68,19 @@ with col1:
     This page gives a short, interactive overview of my projects and why I’d be a great fit for JP Morgan.
     """)
 with col2:
-    st_lottie(lottie_coding, height=180, key="coding")
+    st_lottie(lottie_coding, height=220, key="coding")
 
+# Fun-fact section
 fun_facts = [
     "I'm building a Smart Fridge AI Assistant that recognises items and suggests meals using computer vision.",
     "I created an algorithmic puzzle solver that helped Elvish historians 'save Christmas' 🎄 — a fun data project mixing logic and creativity.",
     "I enjoy debugging — it’s like detective work that rewards persistence and curiosity.",
     "I once automated a repetitive task that saved hours weekly — that’s when I realised how powerful simple code can be."
 ]
-
 if st.button("🎲 Click for a Random Fun Fact"):
     st.info(random.choice(fun_facts))
 
+# Topic selector
 topic = st.selectbox(
     "Pick a topic to explore:",
     ["Technical Skills", "Projects", "Certifications", "Hobbies"]
@@ -76,8 +106,9 @@ elif topic == "Hobbies":
     st.write("• Fitness and learning about AI, automation, and emerging tech.")
     st.write("• Exploring how code can make everyday tasks smarter and simpler.")
 
+# Expanders
 with st.expander("💻 My Projects in Detail"):
-    st.write("- **Smart Fridge AI Assistant** – currently in development, uses a Raspberry Pi Camera and image recognition to detect fridge items and suggest recipes.")
+    st.write("- **Smart Fridge AI Assistant** – in development, uses a Raspberry Pi Camera and image recognition to detect fridge items and suggest recipes.")
     st.write("- **Alien Invasion Game** – Python arcade-style project where players defend against alien ships; implemented movement, collision detection, and scoring.")
     st.write("- **Save Christmas: Location ID Puzzle Solver** – solved a logistics-based matching puzzle using algorithmic pairing and distance calculation.")
 
@@ -94,7 +125,8 @@ I’m eager to contribute to that culture while continuing to grow as a develope
 """)
 
 st.header("🔗 Find Me Online")
-st.markdown("[GitHub](https://github.com/Omid25-dot)  |  [LinkedIn](https://www.linkedin.com/in/omid-merati)")
+st.markdown("[GitHub](https://github.com/Omid25-dot) | [LinkedIn](https://www.linkedin.com/in/omid-merati)")
 
+st_lottie(lottie_wave, height=150, key="wave", speed=0.8)
 st.caption(f"Last updated · {date.today().strftime('%B %Y')}")
 
