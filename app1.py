@@ -14,18 +14,34 @@ st.set_page_config(
 )
 
 # -------------------------------
-# STYLE
+# STYLE (TRANSPARENT + CLEAN)
 # -------------------------------
 st.markdown("""
 <style>
-    .main {
-        background-color:#f4f6f8;
-    }
-    h1, h2, h3 {
-        color:#003366;
-    }
+/* Make entire app background transparent */
+[data-testid="stAppViewContainer"] {
+    background-color: rgba(0, 0, 0, 0) !important;
+    background: transparent !important;
+}
+
+/* Make header transparent */
+[data-testid="stHeader"] {
+    background: transparent !important;
+}
+
+/* Optional: remove padding if you want full-width feel */
+.block-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Headings and text colours (for readability) */
+h1, h2, h3, p, li {
+    color: #003366;
+}
 </style>
 """, unsafe_allow_html=True)
+
 
 # -------------------------------
 # LOAD ANIMATION
@@ -46,7 +62,7 @@ with col1:
     st.title("👋 Hi, I'm Omid Merati")
     st.subheader("Applicant – JP Morgan 2026 Software Engineering Apprenticeship (Glasgow)")
     st.write("""
-    I’m a Python developer with a strong foundation in coding, problem-solving, and version control.  
+    I’m an aspiring Python developer with a basic foundation in coding, problem-solving, and version control.  
     I’m passionate about using technology to solve real-world problems and currently working on a **Smart Fridge AI Assistant** that recognises fridge contents using a Raspberry Pi Camera.  
     This page gives a short, interactive overview of my projects and why I’d be a great fit for JP Morgan.
     """)
