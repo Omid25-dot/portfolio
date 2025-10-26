@@ -20,20 +20,12 @@ import streamlit as st
 
 st.markdown("""
 <style>
-[data-testid="stAppViewContainer"], [data-testid="stHeader"] {
-  background-color: #0e1117 !important;
-}
-h1, h2, h3, h4, p, li, span, div {
-  color: #ffffff !important;
-}
-@media (prefers-color-scheme: light) {
-  [data-testid="stAppViewContainer"], [data-testid="stHeader"] {
-    background-color: #ffffff !important;
-  }
-  h1, h2, h3, h4, p, li, span, div {
-    color: #000000 !important;
-  }
-}
+    .main {
+        background-color:#f4f6f8;
+    }
+    h1, h2, h3 {
+        color:#003366;
+    }
 </style>
 """, unsafe_allow_html=True)
 
