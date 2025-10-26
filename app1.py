@@ -16,31 +16,30 @@ st.set_page_config(
 # -------------------------------
 # STYLE (TRANSPARENT + CLEAN)
 # -------------------------------
+import streamlit as st
+
 st.markdown("""
 <style>
-/* Make entire app background transparent */
-[data-testid="stAppViewContainer"] {
-    background-color: rgba(0, 0, 0, 0) !important;
-    background: transparent !important;
+/* Default (dark) */
+[data-testid="stAppViewContainer"], [data-testid="stHeader"] {
+  background-color: #0e1117 !important;
+}
+h1, h2, h3, h4, p, li, span, div {
+  color: #ffffff !important;
 }
 
-/* Make header transparent */
-[data-testid="stHeader"] {
-    background: transparent !important;
-}
-
-/* Optional: remove padding if you want full-width feel */
-.block-container {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-}
-
-/* Headings and text colours (for readability) */
-h1, h2, h3, p, li {
-    color: #003366;
+/* If the user's system is LIGHT, switch text/bg so it looks proper */
+@media (prefers-color-scheme: light) {
+  [data-testid="stAppViewContainer"], [data-testid="stHeader"] {
+    background-color: #ffffff !important;
+  }
+  h1, h2, h3, h4, p, li, span, div {
+    color: #000000 !important;
+  }
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # -------------------------------
