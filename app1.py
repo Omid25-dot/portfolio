@@ -1,12 +1,11 @@
 import streamlit as st
 import random
 import requests
-import json
 from datetime import date
 from streamlit_lottie import st_lottie
 
 # -------------------------------
-# PAGE CONFIG
+# PAGE SETUP
 # -------------------------------
 st.set_page_config(
     page_title="Omid Merati | JP Morgan Application",
@@ -15,82 +14,51 @@ st.set_page_config(
 )
 
 # -------------------------------
-# STYLE + ANIMATED GRADIENT
+# STYLE (TRANSPARENT + CLEAN)
 # -------------------------------
+import streamlit as st
+
 st.markdown("""
 <style>
-@keyframes gradientShift {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
-}
-.main {
-  background: linear-gradient(270deg, #0e1117, #1a2533, #0e1117);
-  background-size: 600% 600%;
-  animation: gradientShift 18s ease infinite;
-  color: #fafafa;
-}
-h1, h2, h3 {
-  color: #00ffcc;
-}
-div.stButton>button {
-  background-color: #00ffcc;
-  color: #0e1117;
-  border-radius: 8px;
-  border: none;
-  transition: all 0.3s ease;
-}
-div.stButton>button:hover {
-  transform: scale(1.05);
-  background-color: #00e6b8;
-}
-div[data-testid="stExpander"] div[role="button"] p {
-  font-weight: 600;
-  color: #00ffcc;
-}
+    .main {
+        background-color:#f4f6f8;
+    }
+    h1, h2, h3 {
+        color:#003366;
+    }
 </style>
 """, unsafe_allow_html=True)
 
 
+
 # -------------------------------
-# LOAD ANIMATIONS
+# LOAD ANIMATION
 # -------------------------------
-def load_lottie_url(url):
+def load_lottie(url):
     r = requests.get(url)
     if r.status_code != 200:
         return None
     return r.json()
 
-# From URL
-lottie_coding = load_lottie_url("https://assets2.lottiefiles.com/packages/lf20_1pxqjqps.json")
-lottie_wave = load_lottie_url("https://assets10.lottiefiles.com/packages/lf20_c9k5v4jt.json")
-
-# From local file (your animation)
-with open("Background looping animation.json", "r") as f:
-    lottie_background = json.load(f)
+lottie_coding = load_lottie("https://assets2.lottiefiles.com/packages/lf20_1pxqjqps.json")
 
 # -------------------------------
-# DISPLAY BACKGROUND ANIMATION
-# -------------------------------
-st_lottie(lottie_background, height=400, key="bg", loop=True, speed=1)
-
-# -------------------------------
-# HEADER SECTION
+# HEADER
 # -------------------------------
 col1, col2 = st.columns([2, 1])
 with col1:
     st.title("👋 Hi, I'm Omid Merati")
     st.subheader("Applicant – JP Morgan 2026 Software Engineering Apprenticeship (Glasgow)")
     st.write("""
-    I’m an aspiring Python developer with a strong interest in solving real-world problems through code.  
-    Currently building a **Smart Fridge AI Assistant** using a Raspberry Pi Camera that recognises fridge items and suggests meals.  
+    I’m an aspiring Python developer with a basic foundation in coding, problem-solving, and version control.  
+    I’m passionate about using technology to solve real-world problems and currently working on a **Smart Fridge AI Assistant** that recognises fridge contents using a Raspberry Pi Camera.  
     This page gives a short, interactive overview of my projects and why I’d be a great fit for JP Morgan.
     """)
 with col2:
-    st_lottie(lottie_coding, height=220, key="coding")
+    st_lottie(lottie_coding, height=180, key="coding")
 
 # -------------------------------
-# FUN FACT SECTION
+# RANDOM FUN FACT
 # -------------------------------
 fun_facts = [
     "I'm building a Smart Fridge AI Assistant that recognises items and suggests meals using computer vision.",
@@ -102,7 +70,7 @@ if st.button("🎲 Click for a Random Fun Fact"):
     st.info(random.choice(fun_facts))
 
 # -------------------------------
-# TOPIC SELECTOR
+# DROPDOWN / SELECT BOX
 # -------------------------------
 topic = st.selectbox(
     "Pick a topic to explore:",
@@ -130,10 +98,10 @@ elif topic == "Hobbies":
     st.write("• Exploring how code can make everyday tasks smarter and simpler.")
 
 # -------------------------------
-# EXPANDERS
+# EXPANDABLE SECTIONS
 # -------------------------------
 with st.expander("💻 My Projects in Detail"):
-    st.write("- **Smart Fridge AI Assistant** – in development, uses a Raspberry Pi Camera and image recognition to detect fridge items and suggest recipes.")
+    st.write("- **Smart Fridge AI Assistant** – currently in development, uses a Raspberry Pi Camera and image recognition to detect fridge items and suggest recipes.")
     st.write("- **Alien Invasion Game** – Python arcade-style project where players defend against alien ships; implemented movement, collision detection, and scoring.")
     st.write("- **Save Christmas: Location ID Puzzle Solver** – solved a logistics-based matching puzzle using algorithmic pairing and distance calculation.")
 
@@ -156,9 +124,8 @@ I’m eager to contribute to that culture while continuing to grow as a develope
 # LINKS
 # -------------------------------
 st.header("🔗 Find Me Online")
-st.markdown("[GitHub](https://github.com/Omid25-dot) | [LinkedIn](https://www.linkedin.com/in/omid-merati)")
+st.markdown("[GitHub](https://github.com/Omid25-dot)  |  [LinkedIn](www.linkedin.com/in/omid-merati)")
 
-st_lottie(lottie_wave, height=150, key="wave", speed=0.8)
 st.caption(f"Last updated · {date.today().strftime('%B %Y')}")
 
 
