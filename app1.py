@@ -20,15 +20,12 @@ import streamlit as st
 
 st.markdown("""
 <style>
-/* Default (dark) */
 [data-testid="stAppViewContainer"], [data-testid="stHeader"] {
   background-color: #0e1117 !important;
 }
 h1, h2, h3, h4, p, li, span, div {
   color: #ffffff !important;
 }
-
-/* If the user's system is LIGHT, switch text/bg so it looks proper */
 @media (prefers-color-scheme: light) {
   [data-testid="stAppViewContainer"], [data-testid="stHeader"] {
     background-color: #ffffff !important;
