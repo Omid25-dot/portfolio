@@ -105,7 +105,7 @@ I like how J.P. Morgan combines finance + innovation, using AI, cloud tech, and 
 The idea of learning from engineers who work on projects that actually impact the world is exciting to me.
 It feels like the perfect place to grow as a developer while working on something meaningful and global.
 """)
-
+st.write("P.S. This website was built purley on python using the streamlit library")
 
 st.header("🔗 Find Me Online")
 st.markdown("[GitHub](https://github.com/Omid25-dot)  |  [LinkedIn](https://www.linkedin.com/in/omid-merati)")
