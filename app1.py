@@ -44,7 +44,7 @@ with col1:
     st.write("""
     I’m an aspiring Python developer who’s been building up my skills through hands on projects and problem-solving.
 I love finding smart, practical ways to use tech to make life easier whether that’s through automation or AI.
-Right now, I’m working on a **Smart Fridge AI Assistant** that uses a Raspberry Pi Camera to recognise what’s inside a fridge and suggest meals based on it.
+Right now, I’m working on a **Smart Fridge AI Assistant** that uses a Raspberry Pi Camera to recognise what’s inside a fridge and suggests meals based on the items that are in the fridge.
 This page gives a quick, interactive look at some of the things I’ve worked on and why I think I’d be a great fit for JP Morgan.
     """)
 with col2:
