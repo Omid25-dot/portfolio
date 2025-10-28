@@ -4,19 +4,15 @@ import requests
 from datetime import date
 from streamlit_lottie import st_lottie
 
-# -------------------------------
-# PAGE SETUP
-# -------------------------------
+
 st.set_page_config(
     page_title="Omid Merati | JP Morgan Application",
     page_icon="💻",
     layout="centered"
 )
 
-# -------------------------------
-# STYLE (TRANSPARENT + CLEAN)
-# -------------------------------
-import streamlit as st
+
+
 
 st.markdown("""
 <style>
@@ -31,9 +27,7 @@ st.markdown("""
 
 
 
-# -------------------------------
-# LOAD ANIMATION
-# -------------------------------
+
 def load_lottie(url):
     r = requests.get(url)
     if r.status_code != 200:
@@ -42,37 +36,31 @@ def load_lottie(url):
 
 lottie_coding = load_lottie("https://assets2.lottiefiles.com/packages/lf20_1pxqjqps.json")
 
-# -------------------------------
-# HEADER
-# -------------------------------
+
 col1, col2 = st.columns([2, 1])
 with col1:
     st.title("👋 Hi, I'm Omid Merati")
     st.subheader("Applicant – JP Morgan 2026 Software Engineering Apprenticeship (Glasgow)")
     st.write("""
-    I’m a Python developer who’s been building up my skills through hands-on projects and problem-solving.
-I love finding smart, practical ways to use tech to make life easier — whether that’s through automation or AI.
-Right now, I’m working on a **Smart Fridge AI Assistant** that uses a Raspberry Pi Camera to recognise what’s inside the fridge and suggest meals based on it.
+    I’m an aspiring Python developer who’s been building up my skills through hands on projects and problem-solving.
+I love finding smart, practical ways to use tech to make life easier whether that’s through automation or AI.
+Right now, I’m working on a **Smart Fridge AI Assistant** that uses a Raspberry Pi Camera to recognise what’s inside a fridge and suggest meals based on it.
 This page gives a quick, interactive look at some of the things I’ve worked on and why I think I’d be a great fit for JP Morgan.
     """)
 with col2:
     st_lottie(lottie_coding, height=180, key="coding")
 
-# -------------------------------
-# RANDOM FUN FACT
-# -------------------------------
+
 fun_facts = [
 "🤖 I’m working on a Smart Fridge AI Assistant that uses a Raspberry Pi Camera to spot what’s in the fridge and suggest meals based on it.",
     "🎄 I built a puzzle solving algorithm on Advent of Code that helped 'Elvish historians save Christmas' a fun project that tested my problem-solving and creativity.",
-    "🕵️‍♂️ I actually enjoy debugging it’s like detective work where every small clue gets you closer to cracking the issue.",
+    "🕵️‍♂️ You’ll usually find me deep in PyCharm, trying to make my code behave.",
     "💻 I built a little script that sorted all my files on my Mac and deleted duplicates."
 ]
 if st.button("🎲 Click for a Random Fun Fact"):
     st.info(random.choice(fun_facts))
 
-# -------------------------------
-# DROPDOWN / SELECT BOX
-# -------------------------------
+
 topic = st.selectbox(
     "Pick a topic to explore:",
     ["Technical Skills", "Projects", "Certifications", "Hobbies"]
@@ -98,9 +86,7 @@ elif topic == "Hobbies":
     st.write("• Fitness and learning about AI, automation, and emerging tech.")
     st.write("• Exploring how code can make everyday tasks smarter and simpler.")
 
-# -------------------------------
-# EXPANDABLE SECTIONS
-# -------------------------------
+
 with st.expander("💻 My Projects in Detail"):
     st.write("- **Smart Fridge AI Assistant** – currently in development, uses a Raspberry Pi Camera and image recognition to detect fridge items, it suggests recipes and tracks food coming in and out of your fride.")
     st.write("- **Alien Invasion Game** – Python arcade style project where players defend against alien ships; implemented movement, collision detection, and scoring.")
@@ -110,9 +96,7 @@ with st.expander("🎓 Certifications"):
     st.write("• **Machine Learning with Python – FreeCodeCamp**")
     st.write("• **Git and GitHub – Udemy**")
 
-# -------------------------------
-# WHY JP MORGAN
-# -------------------------------
+
 st.header("💬 Why JP Morgan?")
 st.write("""
 J.P. Morgan’s tech teams work on systems that power global finance — that scale and responsibility really motivates me.
@@ -122,9 +106,7 @@ The idea of learning from engineers who work on projects that actually impact th
 It feels like the perfect place to grow as a developer while working on something meaningful and global.
 """)
 
-# -------------------------------
-# LINKS
-# -------------------------------
+
 st.header("🔗 Find Me Online")
 st.markdown("[GitHub](https://github.com/Omid25-dot)  |  [LinkedIn](https://www.linkedin.com/in/omid-merati)")
 
