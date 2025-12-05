@@ -97,14 +97,7 @@ with st.expander("🎓 Certifications"):
     st.write("• **Git and GitHub – Udemy**")
 
 
-st.header("💬 Why JP Morgan?")
-st.write("""
-J.P. Morgan’s tech teams work on systems that power global finance — that scale and responsibility really motivates me.
-Developers here don’t just write code — they build tools that move billions, fight fraud, and make banking faster and safer.
-I like how J.P. Morgan combines finance + innovation, using AI, cloud tech, and data to solve real problems.
-The idea of learning from engineers who work on projects that actually impact the world is exciting to me.
-It feels like the perfect place to grow as a developer while working on something meaningful and global.
-""")
+
 
 st.header("🔗 Find Me Online")
 st.markdown("[GitHub](https://github.com/Omid25-dot)  |  [LinkedIn](https://www.linkedin.com/in/omid-merati)")
