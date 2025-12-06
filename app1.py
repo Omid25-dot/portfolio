@@ -6,7 +6,7 @@ from streamlit_lottie import st_lottie
 
 
 st.set_page_config(
-    page_title="Omid Merati | JP Morgan Application",
+    page_title="Omid Merati | My Portfolio",
     page_icon="💻",
     layout="centered"
 )
