@@ -40,7 +40,6 @@ lottie_coding = load_lottie("https://assets2.lottiefiles.com/packages/lf20_1pxqj
 col1, col2 = st.columns([2, 1])
 with col1:
     st.title("👋 Hi, I'm Omid Merati")
-    st.subheader("Applicant – JP Morgan 2026 Software Engineering Apprenticeship (Glasgow)")
     st.write("""
     I’m an aspiring Python developer who’s been building up my skills through hands on projects and problem-solving.
 I love finding smart, practical ways to use tech to make life easier whether that’s through automation or AI.
